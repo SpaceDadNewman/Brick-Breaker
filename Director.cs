@@ -16,6 +16,7 @@ namespace cse210_batter_csharp
     public class Director
     {
         private bool _keepPlaying = true;
+        AudioService audioService = new AudioService();
         private Dictionary<string, List<Actor>> _cast;
         private Dictionary<string, List<Action>> _script;
 
@@ -39,6 +40,15 @@ namespace cse210_batter_csharp
                 if (Raylib_cs.Raylib.WindowShouldClose())
                 {
                     _keepPlaying = false;
+                }
+                if (_cast["balls"].Count == 0)
+                {
+                    _keepPlaying = false;
+                }
+                if (_cast["bricks"].Count == 0)
+                {
+                    _keepPlaying = false;
+                    audioService.PlaySound(Constants.SOUND_OVER);
                 }
             }
 
