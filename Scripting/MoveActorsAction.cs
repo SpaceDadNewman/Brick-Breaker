@@ -23,7 +23,7 @@ namespace cse210_batter_csharp
                 foreach (Actor actor in group)
                 {
                     MoveActor(actor);
-                }
+                }   
             }
         }
         
